@@ -2,15 +2,46 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public WheelCollider FL;
+    public WheelCollider FR;
+    public WheelCollider RL;
+    public WheelCollider RR;
+
+    public float motorForce = 2000f;
+    public float steeringAngle = 30f;
+
+    private CarInput input;
+
+    private void Awake()
     {
-        
+        input = new CarInput();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * 20);
+        input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        input.Disable();
+    }
+
+    private void FixedUpdate()
+    {
+        float throttle = input.Driving.Throttle.ReadValue<float>();
+        float steer = input.Driving.Steer.ReadValue<float>();
+
+        float torque = throttle * motorForce;
+
+        FL.motorTorque = torque;
+        FR.motorTorque = torque;
+        RL.motorTorque = torque;
+        RR.motorTorque = torque;
+
+        FL.steerAngle = steer * steeringAngle;
+        FR.steerAngle = steer * steeringAngle;
+
+
     }
 }
