@@ -21,6 +21,6 @@ public class WheelVisual : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
 
         transform.position = pos + positionOffset;
-        transform.rotation = rot * rotationOffset;
+        //transform.rotation = rot * rotationOffset;
     }
 }

@@ -31,6 +31,7 @@ public class PlayerControl : MonoBehaviour
     {
         float throttle = input.Driving.Throttle.ReadValue<float>();
         float steer = input.Driving.Steer.ReadValue<float>();
+        float brake = input.Driving.Brake.ReadValue<float>();
 
         float torque = throttle * motorForce;
 
@@ -42,6 +43,13 @@ public class PlayerControl : MonoBehaviour
         FL.steerAngle = steer * steeringAngle;
         FR.steerAngle = steer * steeringAngle;
 
+        float brakeForce = 25000f;
+        float brakeTorque = brake * brakeForce;
 
+        FL.brakeTorque = brakeTorque * 1.4f;
+        FR.brakeTorque = brakeTorque * 1.4f;
+
+        RL.brakeTorque = brakeTorque * 0.8f;
+        RR.brakeTorque = brakeTorque * 0.8f;
     }
 }
