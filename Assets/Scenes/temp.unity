@@ -335,6 +335,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayControl
   speed: 10
+  turnSpeed: 0
+  moveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3bbf0485-5f64-48f0-a8e9-01b6159258d1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+--- !u!4 &320150221 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7242708064620489130, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
+  m_PrefabInstance: {fileID: 1299255023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!28 &331781260
 Texture2D:
   m_ObjectHideFlags: 0
@@ -595732,7 +595747,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7242708064620489130, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1464428782}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8054850871210537744, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
       insertIndex: -1
@@ -595784,6 +595802,61 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1464428781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1464428782}
+  - component: {fileID: 1464428783}
+  m_Layer: 0
+  m_Name: PlayControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1464428782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464428781}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.336609, y: 0, z: 5.272537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 320150221}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464428783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464428781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76dc03af04d026b459a37af1d45e6d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayControl
+  speed: 10
+  turnSpeed: 0
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d041cbdf-3dd3-4628-99e6-728d745d765f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1586183474
 MonoBehaviour:
   m_ObjectHideFlags: 0
