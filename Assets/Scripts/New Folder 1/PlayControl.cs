@@ -22,7 +22,7 @@ public class PlayControl : MonoBehaviour
 
         transform.Translate(Vector3.forward * Time.deltaTime * speed * moveInput.y);
 
-        transform.Rotate(Vector3.up * Time.deltaTime * speed * moveInput.x);
+        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * moveInput.x);
         //transform.Translate(Vector3.right * Time.deltaTime * turnSpeed);
 
     }
