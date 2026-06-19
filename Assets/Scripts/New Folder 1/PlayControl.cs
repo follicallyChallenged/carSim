@@ -9,16 +9,21 @@ public class PlayControl : MonoBehaviour
     public float speed = 10.0f;
     public float turnSpeed;
     public InputAction moveAction;
+    public Vector2 moveInput;
     void Start()
     {
-        
+        moveAction.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        transform.Translate(Vector3.right * Time.deltaTime * turnSpeed);
+        moveInput = moveAction.ReadValue<Vector2>();
+
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * moveInput.y);
+
+        transform.Rotate(Vector3.up * Time.deltaTime * speed * moveInput.x);
+        //transform.Translate(Vector3.right * Time.deltaTime * turnSpeed);
 
     }
 }

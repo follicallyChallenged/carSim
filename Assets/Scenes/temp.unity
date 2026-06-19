@@ -334,22 +334,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76dc03af04d026b459a37af1d45e6d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayControl
-  speed: 10
-  turnSpeed: 0
+  speed: 100
+  turnSpeed: 100
   moveAction:
-    m_Name: 
+    m_Name: Move
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 3bbf0485-5f64-48f0-a8e9-01b6159258d1
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 95a9d103-11fb-4af3-a254-9a3f2ffa40d2
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: f161b407-ac39-422b-8cca-0fa301cdbbb6
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: d3255718-3ea7-403b-8668-e2537c4c562d
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 29327d08-c8f0-4203-b77c-338e60366f1e
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 11bf7e32-d968-4430-8780-fc8db25b5313
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
     m_Flags: 0
+  moveInput: {x: 0, y: 0}
 --- !u!4 &320150221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7242708064620489130, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
   m_PrefabInstance: {fileID: 1299255023}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &320150222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320150218}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4503784, y: 1.4026852, z: 5.4082336}
+  m_Center: {x: -0.029083252, y: 0.70059776, z: 0.017044067}
+--- !u!54 &320150223
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320150218}
+  serializedVersion: 5
+  m_Mass: 1000
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!28 &331781260
 Texture2D:
   m_ObjectHideFlags: 0
@@ -595755,6 +595844,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8054850871210537744, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
       insertIndex: -1
       addedObject: {fileID: 320150220}
+    - targetCorrespondingSourceObject: {fileID: 8054850871210537744, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 320150223}
+    - targetCorrespondingSourceObject: {fileID: 8054850871210537744, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 320150222}
   m_SourcePrefab: {fileID: 100100000, guid: 077937a285a1ebb4c930510b06caa222, type: 3}
 --- !u!28 &1341455499
 Texture2D:
@@ -595857,6 +595952,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  moveInput: {x: 0, y: 0}
 --- !u!114 &1586183474
 MonoBehaviour:
   m_ObjectHideFlags: 0
