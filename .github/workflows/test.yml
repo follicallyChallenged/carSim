@@ -1,4 +1,4 @@
-name: CI Test
+name: Unity Build
 
 on:
   workflow_dispatch:
@@ -7,17 +7,31 @@ on:
       - ci-cd-setup
 
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Print Message
-        run: |
-          echo "Hello from GitHub Actions!"
-          echo "Current branch:"
-          git branch
-          echo "Current directory:"
-          pwd
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      - name: Build Unity Project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: StandaloneWindows64
+
+      - name: Upload Build
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: WindowsBuild
+          path: build
