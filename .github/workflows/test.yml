@@ -1,0 +1,37 @@
+name: Unity Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ci-cd-setup
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      - name: Build Unity Project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: StandaloneWindows64
+
+      - name: Upload Build
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: WindowsBuild
+          path: build
