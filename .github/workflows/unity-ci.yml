@@ -1,0 +1,21 @@
+name: Unity CI
+
+on:
+  push:
+    branches:
+      - cam-AI
+
+  pull_request:
+    branches:
+      - cam-AI
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Workflow Started
+        run: echo "GitHub Actions is working!"
